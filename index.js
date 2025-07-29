@@ -6,7 +6,7 @@ const handle = async (context, body) => {
   };
 
   context.log.info(`Method: ${context.method}`);
-  context.log.info(`BODY: ${JSON.stringify(body)}`);
+  context.log.info(`BODY: ${body}`);
 
   if (context.method === 'OPTIONS') {
     return { statusCode: 204, headers: corsHeaders };
