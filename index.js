@@ -8,8 +8,8 @@ const handle = async (context, body) => {
   context.log.info(`Method: ${context.method}`);
   context.log.info(`BODY: ${JSON.stringify(body)}`);
 
-  const correlationid = body?.correlationid;
-  context.log.info(`Received correlationid: ${correlationid}`);
+  const groupName = body.data.targetid_groupname;
+  context.log.info(`Created groupName: ${groupName}`);
 
   if (context.method === 'OPTIONS') {
     return { statusCode: 204, headers: corsHeaders };
