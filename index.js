@@ -6,13 +6,18 @@ const handle = async (context, body) => {
   };
 
   context.log.info(`Method: ${context.method}`);
-  context.log.info(`BODY: ${body}`);
+  context.log.info(`BODY: ${JSON.stringify(body)}`);
+
+  const correlationid = body?.correlationid;
+  context.log.info(`Received correlationid: ${correlationid}`);
 
   if (context.method === 'OPTIONS') {
     return { statusCode: 204, headers: corsHeaders };
   }
 
   if (context.method === 'POST') {
+    const name = body?.name;
+    context.log.info(`Received name: ${name}`);
     return { statusCode: 200, headers: corsHeaders, body };
   } else if (context.method === 'GET') {
     return { statusCode: 200, headers: corsHeaders, body: context.query };
