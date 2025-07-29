@@ -17,7 +17,8 @@
  */
 const handle = async (context, body) => {
   // YOUR CODE HERE
- 
+
+  console.log(`BODY: ${body}`);
   context.log.info(`BODY: ${body}`);
 
   // If the request is an HTTP POST, the context will contain the request body
